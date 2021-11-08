@@ -1,23 +1,67 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+
+import { Header } from "./components/Header";
+import { Article } from "./components/Article";
+import { Conclusion } from "./components/Conclusion";
+import { GlobalStyles } from "./components/GlobalStyles";
+import { Footer } from "./components/Footer";
 
 function App() {
+  const [items, setItems] = useState({});
+  const [productOrder, setProductOrder] = useState([]);
+  let fetched = false;
+
+  useEffect(() => {
+    fetch(
+      "https://cdn.contentful.com/spaces/o6cj1t1pbl2q/environments/master/entries?access_token=6yymc6OcB1VaebTGOmRRmY4rcgh9McCzh0Ut8Ea4icQ&content_type=productOrder"
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        // console.log(json);
+        const hottestProductsMeta = json.items.find(
+          (item) => (item.fields.title = "Hottest Products")
+        );
+
+        const hottestProductsOrderedIds =
+          hottestProductsMeta.fields.productOrder.map(
+            (product) => product.sys.id
+          );
+
+        fetch(
+          "https://cdn.contentful.com/spaces/o6cj1t1pbl2q/environments/master/entries?access_token=6yymc6OcB1VaebTGOmRRmY4rcgh9McCzh0Ut8Ea4icQ&metadata.tags.sys.id[in]=hottestproducts"
+        )
+          .then((response) => response.json())
+          .then((products) => {
+            let orderedProducts = [];
+            hottestProductsOrderedIds.forEach((id) => {
+              products.items.forEach((product) => {
+                if (product.sys.id === id) {
+                  orderedProducts.push(product);
+                }
+              });
+            });
+            setItems(orderedProducts);
+            fetched = true;
+          });
+        // getImageUrl(data);
+        // setItems(data);
+      });
+  }, [fetched]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyles />
+      <Header></Header>
+      <main>
+        {items.length > 0
+          ? items.map((item, index) => {
+              return <Article key={index} items={item} index={index} />;
+            })
+          : ""}
+        <Conclusion></Conclusion>
+        <hr />
+      </main>
+      <Footer></Footer>
     </div>
   );
 }
