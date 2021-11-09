@@ -15,14 +15,36 @@ import Hero4 from "../assets/Hero4.png";
 import Hero5 from "../assets/Hero5.png";
 import Hero6 from "../assets/Hero6.png";
 
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let date = new Date();
+const month = date.getMonth();
+const day = date.getDate();
+const year = date.getFullYear();
+date = months[month] + " " + day + ", " + year;
+
 const Header = () => {
   return (
     <StyledHeader>
-      <StyledHeading>21 Most Innovative Devices of 2021</StyledHeading>
+      <StyledHeading>
+        27 Viral Stocking Stuffers That Are Selling Out Fast For The Holidays
+      </StyledHeading>
       <hr />
       <StyledAuthorSection>
         <StyledAuthorImage></StyledAuthorImage>
-        <StyledAuthorText>By Jason Stone || January 26, 2021</StyledAuthorText>
+        <StyledAuthorText>By Jason Stone || {date}</StyledAuthorText>
       </StyledAuthorSection>
       <StyledHeaderImageContainer>
         <img src={Hero1} alt="" />

@@ -13,6 +13,11 @@ main {
     margin: auto;
 }
 
+a { 
+    text-decoration: none;
+    color: white;
+}
+
 @media (max-width: 900px) {
     main {
         width: 90vw;

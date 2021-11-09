@@ -11,6 +11,9 @@ function App() {
   const [productOrder, setProductOrder] = useState([]);
   let fetched = false;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const glcid = urlParams.get("glcid");
+  console.log(glcid);
   useEffect(() => {
     fetch(
       "https://cdn.contentful.com/spaces/o6cj1t1pbl2q/environments/master/entries?access_token=6yymc6OcB1VaebTGOmRRmY4rcgh9McCzh0Ut8Ea4icQ&content_type=productOrder"
@@ -19,8 +22,10 @@ function App() {
       .then((json) => {
         // console.log(json);
         const hottestProductsMeta = json.items.find(
-          (item) => (item.fields.title = "Hottest Products")
+          (item) => (item.fields.title = document.title)
         );
+
+        // console.log(hottestProductsMeta);
 
         const hottestProductsOrderedIds =
           hottestProductsMeta.fields.productOrder.map(
@@ -28,7 +33,10 @@ function App() {
           );
 
         fetch(
-          "https://cdn.contentful.com/spaces/o6cj1t1pbl2q/environments/master/entries?access_token=6yymc6OcB1VaebTGOmRRmY4rcgh9McCzh0Ut8Ea4icQ&metadata.tags.sys.id[in]=hottestproducts"
+          "https://cdn.contentful.com/spaces/o6cj1t1pbl2q/environments/master/entries?access_token=6yymc6OcB1VaebTGOmRRmY4rcgh9McCzh0Ut8Ea4icQ&metadata.tags.sys.id[in]=" +
+            document
+              .getElementsByName("campaign")[0]
+              .getAttribute("description")
         )
           .then((response) => response.json())
           .then((products) => {
@@ -59,7 +67,6 @@ function App() {
             })
           : ""}
         <Conclusion></Conclusion>
-        <hr />
       </main>
       <Footer></Footer>
     </div>

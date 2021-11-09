@@ -99,6 +99,9 @@ const StyledFooterCopyright = styled.div`
   justify-content: center;
   font-weight: 300;
   font-size: 12px;
+  * {
+    margin: 1em;
+  }
 `;
 
 export {
