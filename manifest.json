@@ -18,7 +18,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./upwork_hottest_products/static",
+  "start_url": "https://xmeatballx.github.io/upwork_hottest_products/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
