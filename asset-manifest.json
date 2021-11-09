@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/upwork_hottest_products/static/js/main.6970a5e4.chunk.js",
+    "main.js.map": "/upwork_hottest_products/static/js/main.6970a5e4.chunk.js.map",
+    "runtime-main.js": "/upwork_hottest_products/static/js/runtime-main.0d44a6ad.js",
+    "runtime-main.js.map": "/upwork_hottest_products/static/js/runtime-main.0d44a6ad.js.map",
+    "static/js/2.89ceedc5.chunk.js": "/upwork_hottest_products/static/js/2.89ceedc5.chunk.js",
+    "static/js/2.89ceedc5.chunk.js.map": "/upwork_hottest_products/static/js/2.89ceedc5.chunk.js.map",
+    "index.html": "/upwork_hottest_products/index.html",
+    "static/js/2.89ceedc5.chunk.js.LICENSE.txt": "/upwork_hottest_products/static/js/2.89ceedc5.chunk.js.LICENSE.txt",
+    "static/media/Hero1.cb89dd81.png": "/upwork_hottest_products/static/media/Hero1.cb89dd81.png",
+    "static/media/Hero2.95b91e94.png": "/upwork_hottest_products/static/media/Hero2.95b91e94.png",
+    "static/media/Hero3.578e307f.png": "/upwork_hottest_products/static/media/Hero3.578e307f.png",
+    "static/media/Hero4.d6d775e4.png": "/upwork_hottest_products/static/media/Hero4.d6d775e4.png",
+    "static/media/Hero5.95162d4b.png": "/upwork_hottest_products/static/media/Hero5.95162d4b.png",
+    "static/media/Hero6.95bb146b.png": "/upwork_hottest_products/static/media/Hero6.95bb146b.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0d44a6ad.js",
+    "static/js/2.89ceedc5.chunk.js",
+    "static/js/main.6970a5e4.chunk.js"
+  ]
+}
